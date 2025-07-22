@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 <div class="bg-gray min-h-screen py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
@@ -23,7 +31,7 @@
           </svg>
         </div>
         <h3 class="text-lg font-semibold text-gray-700 text-gray-200 mb-2">Monthly Revenue</h3>
-        <div class="text-3xl font-bold text-gray-900 text-white mb-1" id="revenue-counter">$0</div>
+        <div class="text-3xl font-bold text-gray-900 text-white mb-1" id="revenue-counter">$358,420</div>
         <p class="text-sm font-medium text-green-600 text-green-400"> 124.5% last quarter</p>
       </div>
 
@@ -35,7 +43,7 @@
           </svg>
         </div>
         <h3 class="text-lg font-semibold text-gray-700 text-gray-200 mb-2">Conversion Rate</h3>
-        <div class="text-3xl font-bold text-gray-900 text-white mb-1" id="conversion-counter">0%</div>
+        <div class="text-3xl font-bold text-gray-900 text-white mb-1" id="conversion-counter">7%</div>
         <p class="text-sm font-medium text-green-600 text-green-400"> 108.2% from last month</p>
       </div>
 
@@ -56,7 +64,7 @@
 
         </div>
         <h3 class="text-lg font-semibold text-gray-700 text-gray-200 mb-2">Customer Satisfaction</h3>
-        <div class="text-3xl font-bold text-gray-900 text-white mb-1" id="satisfaction-counter">0%</div>
+        <div class="text-3xl font-bold text-gray-900 text-white mb-1" id="satisfaction-counter">94%</div>
         <p class="text-sm font-medium text-green-600 text-green-400"> 82% this year</p>
       </div>
 
@@ -68,7 +76,7 @@
           </svg>
         </div>
         <h3 class="text-lg font-semibold text-gray-700 text-gray-200 mb-2">Monthly Visitors</h3>
-        <div class="text-3xl font-bold text-gray-900 text-white mb-1" id="traffic-counter">0</div>
+        <div class="text-3xl font-bold text-gray-900 text-white mb-1" id="traffic-counter">125,430</div>
         <p class="text-sm font-medium text-green-600 text-green-400"> 142.7% YoY</p>
       </div>
     </div>
@@ -85,7 +93,7 @@
           </div>
           <div>
             <h3 class="text-base font-medium text-gray-700 text-gray-200">Avg. Order Value</h3>
-            <div class="text-xl font-bold text-gray-900 text-white" id="aov-counter">$0</div>
+            <div class="text-xl font-bold text-gray-900 text-white" id="aov-counter">$82</div>
           </div>
         </div>
         <p class="text-xs font-medium mt-2 text-green-600 text-green-400"> 115.3%</p>
@@ -101,7 +109,7 @@
           </div>
           <div>
             <h3 class="text-base font-medium text-gray-700 text-gray-200">Repeat Customers</h3>
-            <div class="text-xl font-bold text-gray-900 text-white" id="repeat-counter">0</div>
+            <div class="text-xl font-bold text-gray-900 text-white" id="repeat-counter">4,235</div>
           </div>
         </div>
         <p class="text-xs font-medium mt-2 text-green-600 text-green-400">132.1%</p>
@@ -117,7 +125,7 @@
           </div>
           <div>
             <h3 class="text-base font-medium text-gray-700 text-gray-200">Cart Abandonment</h3>
-            <div class="text-xl font-bold text-gray-900 text-white" id="abandonment-counter">0%</div>
+            <div class="text-xl font-bold text-gray-900 text-white" id="abandonment-counter">62%</div>
           </div>
         </div>
         <p class="text-xs font-medium mt-2 text-red-600 text-red-400">18.6%</p>
@@ -126,61 +134,45 @@
   </div>
 </div>
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Función para animar los contadores
-    const animateCounter = (elementId, target, prefix = '', suffix = '', duration = 2000) => {
-      const element = document.getElementById(elementId);
-      if (!element) return;
-      
-      const start = 0;
-      const increment = target / (duration / 16);
-      let current = start;
-      
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          clearInterval(timer);
-          current = target;
-        }
-        element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
-      }, 16);
-    };
 
-    // Configuración del Intersection Observer
-    const observerOptions = {
-      threshold: 0.5 // Se dispara cuando el 50% del elemento es visible
-    };
+<script is:inline type="module">
+  const animateCounter = (id, target, prefix = '', suffix = '', duration = 2000) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const increment = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        clearInterval(timer);
+        current = target;
+      }
+      el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+    }, 16);
+  };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Animar todos los contadores cuando la sección es visible
-          animateCounter('revenue-counter', 358420, '$');
-          animateCounter('conversion-counter', 7, '', '%');
-          animateCounter('satisfaction-counter', 94, '', '%');
-          animateCounter('traffic-counter', 125430);
-          animateCounter('aov-counter', 82, '$');
-          animateCounter('repeat-counter', 4235);
-          animateCounter('abandonment-counter', 62, '', '%');
-          
-          // Dejar de observar después de la primera vez
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter('revenue-counter', 358420, '$');
+        animateCounter('conversion-counter', 7, '', '%');
+        animateCounter('satisfaction-counter', 94, '', '%');
+        animateCounter('traffic-counter', 125430);
+        animateCounter('aov-counter', 82, '$');
+        animateCounter('repeat-counter', 4235);
+        animateCounter('abandonment-counter', 62, '', '%');
 
-    // Observar la sección de métricas
-    const metricsSection = document.getElementById('metrics-section');
-    if (metricsSection) {
-      observer.observe(metricsSection);
-    }
+        observer.unobserve(entry.target); // solo se ejecuta una vez
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Esperar al DOM completo, incluso tras navegación interna
+  window.addEventListener('load', () => {
+    const target = document.getElementById('metrics-section');
+    if (target) observer.observe(target);
   });
 </script>
-
-
-
-
 
 
 <!-- 
