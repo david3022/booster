@@ -9,26 +9,23 @@ import BannerPeople from '../assets/BannerPeople.webp';
 
 
 <header class="w-full bg-gray-900 shadow-md">
-  <div class="max-w-full-xl mx-auto flex items-center justify-between px-8 py-4">
-    
+  <div class="max-w-screen-xl mx-auto flex items-center justify-between px-8 py-4">
     <!-- 🖼️ Logo alineado a la izquierda -->
     <div class="flex items-center ml-16">
       <img src={Logop.src} alt="Logo" class="h-20 w-auto" />
     </div>
 
     <!-- 🔗 Navegación alineada de centro a derecha -->
-    <nav class="flex gap-6 text-m font-medium text-gray-700">
-      <a href="/#business" class="hover:text-indigo-600 transition">Business</a>
-      <a href="/#resources" class="hover:text-indigo-600 transition">Resources</a>
-      <a href="/#metrics" class="hover:text-indigo-600 transition">Metrics</a>
-      <a href="/escalate#about" class="hover:text-indigo-600 transition">About</a>
+    <nav class="flex gap-6 text-base font-medium text-gray-300">
+      <a href="/#business" class="hover:text-indigo-400 transition">Business</a>
+      <a href="/#resources" class="hover:text-indigo-400 transition">Resources</a>
+      <a href="/#metrics" class="hover:text-indigo-400 transition">Metrics</a>
+      <a href="/escalate#about" class="hover:text-indigo-400 transition">About</a>
     </nav>
   </div>
 </header>
 
-
-
-
+<!-- Sección hero -->
 <div class="relative bg-gray-900">
   <div class="absolute inset-x-0 bottom-0">
     <svg viewBox="0 0 224 12" fill="currentColor" class="-mb-1 w-full text-white" preserveAspectRatio="none">
@@ -36,57 +33,30 @@ import BannerPeople from '../assets/BannerPeople.webp';
     </svg>
   </div>
 
-  <div class="mx-auto px-4 py-4 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-full-xl lg:px-8 lg:py-8">
-    <div class="relative max-w-2xl sm:mx-auto sm:max-w-xl sm:text-center md:max-w-2xl">
-      
-      <!-- 🧠 Línea horizontal: texto + logo -->
-     <div class="flex justify-center items-center mb-6">
+  <div class="mx-auto px-6 py-6 sm:max-w-xl md:max-w-full md:px-10 lg:max-w-screen-xl lg:px-8 lg:py-8">
+    <div class="max-w-2xl mx-auto text-center">
+      <!-- Logo con proporción -->
+      <div class="flex justify-center items-center mb-6">
+        <div class="w-full max-w-[360px] aspect-[40/9]">
+          <img src={Welcome.src} alt="Logo" class="w-full h-full object-contain" />
+        </div>
+      </div>
 
-  <!-- 🖼️ Logo con aspect-ratio 32:9 -->
-  <div class=" aspect-[40/9]">
-    <img src={Welcome.src} alt="Logo" class="aspect-[40/9] w-auto h-22 " />
-  </div>
-</div>
-
-
-      <p class="mb-8 text-center text-base text-indigo-100 md:text-lg">
-        The Online Marketing and Publicity Agency  to optimize your visibility, boosting engagement, and converting audiences into loyal customers
+      <p class="mb-8 text-base text-indigo-100 md:text-lg">
+        The Online Marketing and Publicity Agency to optimize your visibility, boosting engagement, and converting audiences into loyal customers
       </p>
 
-      
-
-      <p class="mb-10 max-w-md text-xs tracking-wide text-indigo-100 sm:mx-auto sm:text-sm md:mb-8"></p>
+      <p class="mb-10 max-w-md text-xs tracking-wide text-indigo-100 mx-auto sm:text-sm md:mb-8"></p>
     </div>
   </div>
 </div>
 
-
-
-<div class="banner w-screen overflow-hidden">
+<!-- Banner imagen -->
+<div class="w-full h-[62vh] flex justify-center items-center overflow-hidden">
   <img
     src={BannerPeople.src}
     alt="Banner"
-    class="w-full h-auto object-cover"
+    class="w-full h-full object-cover aspect-[4/3]"
   />
 </div>
 
-
-
-<style>
-  .banner {
-    height:62vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    
-   
-  }
-
-  .banner img {
-    height: 100%;
-    width: 100%;
-    aspect-ratio: 4/3;
-    
-    
-  }
-</style>

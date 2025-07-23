@@ -1,4 +1,40 @@
 ---
+import Carrousell2 from "../components/CarrousellS.astro";
+import Resources from "../components/3Resources.astro";
+import Business from "../components/4BusinessType.astro";
+import Layout from "../layouts/BlogPost.astro";
+
+
+---
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Booster</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+ 
+  
+    <Layout>
+     
+      
+	  <Carrousell2 />
+      <Business />
+      <Resources />
+
+      
+    </Layout>
+  </body>
+</html>
+
+
+
+<!-- ---
 import Layout from '../layouts/BlogPost.astro';
 import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 ---
@@ -60,4 +96,4 @@ import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
 		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
 	</p>
-</Layout>
+</Layout> -->
