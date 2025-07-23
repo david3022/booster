@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-import Header from "../components/Header.astro";
+
 import Header2 from "../components/2Header.astro";
 import Header3 from "../components/2Header2.astro";
 import Resources from "../components/3Resources.astro";
@@ -11,14 +11,12 @@ import Carrousell2 from "../components/CarrousellS.astro";
 import Impact from "../components/Impact.astro";
 import Testimonials from "../components/Testimonials.astro";
 import Headquarters from "../components/Headquarters.astro";
-import Start from "../components/4NewBusiness.astro";
+
 import BaseHead from "../components/BaseHead.astro";
-import CarrousellNew from "../components/CarrousellNew.astro";
+
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "../styles/global.css";
-import Services from "../components/Services.astro";
-import Boosting from "../components/Boosting.astro";
 ---
 
 
@@ -36,13 +34,20 @@ import Boosting from "../components/Boosting.astro";
   
     <Layout>
      
-      
-      <Testimonials />
+      <!-- <Header2 />
+      <Header3 />
+	  <Carrousell2 />
+      <Business />
+      <Resources />
 
-      <Analytics /> 
-        <Carrousell />
-        <Impact />
-      
+      <Analytics />  -->
+
+      <Carrousell />
+      <Impact />
+
+      <Testimonials />
+	  
+      <Headquarters />
 
       <Footer /> 
     </Layout>
